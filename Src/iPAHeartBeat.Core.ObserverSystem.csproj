@@ -64,7 +64,7 @@
 
   <PropertyGroup Label="Project Git Info">
     <PackageProjectUrl/>
-    <RepositoryUrl/>
+    <RepositoryUrl>https://github.com/PAHeartBeat/Observer-System</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
@@ -80,8 +80,16 @@
   <ItemGroup>
     <AdditionalFiles Include="stylecop.json"/>
   </ItemGroup>
+
   <ItemGroup>
     <None Include="LICENSE.md" Pack="true" PackagePath=""/>
     <None Include="README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="iPAHeartBeat.Core.Abstraction" Version="1.0.0-RC3"/>
+    <PackageReference Include="iPAHeartBeat.Core.Dependency" Version="2.0.0"/>
+    <PackageReference Include="iPAHeartBeat.Core.Extensions" Version="2.0.0"/>
+    <PackageReference Include="iPAHeartBeat.Core.Singleton" Version="1.0.0-RC1"/>
   </ItemGroup>
 </Project>
