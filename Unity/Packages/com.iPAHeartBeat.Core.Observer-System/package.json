@@ -1,0 +1,28 @@
+{
+	"name": "com.ipaheartbeat.core.observer-system",
+	"version": "1.0.0-RC3",
+	"displayName": "Core Observer-System",
+	"description": "This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.",
+	"license": "LGPL-3.0-or-later",
+	"unity": "2017.1",
+	"keywords": [
+		"C#",
+		"Observer Design Pattern",
+		"Signal System",
+		"Message System"
+	],
+	"author": {
+		"name": "Ankur Ranpariya",
+		"email": "ankur30884@gmail.com"
+	},
+	"samples": [],
+	"type": "library",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/PAHeartBeat/Observer-System"
+	},
+	"bugs": {
+		"url": "https://github.com/PAHeartBeat/Observer-System/issues",
+		"email": "ankur30884@gmail.com"
+	}
+}

@@ -1,5 +1,5 @@
-# <<Project-Name>>
-<<Project-Description>>
+# iPAHeartBeat Core Observer-System
+This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.
 
 
 * [Change Log](CHANGELOG.md)

@@ -30,7 +30,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>1.0.0-RC3</PackageVersion>
+    <PackageVersion>1.0.0-RC1</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Label="Debug and Exception Setting">
@@ -48,14 +48,14 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Project Meta and settings.">
-    <PackageId>__Project-Id__</PackageId>
-    <PackageTags>C#, Utils Abstraction,</PackageTags>
-    <Description>__Project-Description__</Description>
+    <PackageId>iPAHeartBeat.Core.ObserverSystem</PackageId>
+    <PackageTags>C#, Observer Design Pattern, Signal System, Message System</PackageTags>
+    <Description>This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.</Description>
 
-    <RootNamespace>__Namespace__</RootNamespace>
+    <RootNamespace>iPAHeartBeat.Core</RootNamespace>
     <AssemblyName>$(PackageId)</AssemblyName>
-    <AssemblyVersion>1.0.0.3</AssemblyVersion>
-    <FileVersion>1.0.0.3</FileVersion>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
     <NeutralLanguage>en</NeutralLanguage>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
