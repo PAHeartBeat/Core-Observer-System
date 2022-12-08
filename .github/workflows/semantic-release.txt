@@ -1,0 +1,65 @@
+name: "Semantic Release"
+on:
+  push:
+    branches:
+    - master
+
+  workflow_dispatch:
+    branches:
+    - master
+
+env:
+      NPM_TOKEN: ${{ secrets.CODESMITH_IO_API_KEY }}
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    environment:
+      name: CI_CD
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Semantic Release
+      id: semantic
+      uses: cycjimmy/semantic-release-action@v3
+      with:
+        extra_plugins: |
+          @semantic-release/changelog
+          @semantic-release/git
+        branch: master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create UPM branch
+      env:
+        PKG_ROOT: Unity/Packages/com.iPAHeartBeat.Core.Abstraction
+        UPM_BRANCH: upm/v${{ steps.semantic.outputs.new_release_version }}
+      run: |
+        echo '### Removing existing upm branch for the version'
+        git branch -d $UPM_BRANCH &> /dev/null || echo upm branch not found
+
+        echo '### Split upm branch'
+        git subtree split -P "$PKG_ROOT" -b $UPM_BRANCH
+
+        echo '### checkout to $UPM_BRANCH to manage Samples and other'
+        git checkout $UPM_BRANCH
+
+        echo '### Managing Sample Folder for Unity'
+        if [[ -d "Samples" ]]; then
+          git mv Samples Samples~
+          rm -f Samples.meta
+          git config --global user.name 'github-bot'
+          git config --global user.email 'github-bot@users.noreply.github.com'
+          git commit -am "fix: Samples => Samples~"
+        fi
+
+        echo '### Pushing new changes to Upm Branch.'
+        git push -f -u origin $UPM_BRANCH
+    - name: Create upm git tag
+      env:
+        TAG: upm/v${{ steps.semantic.outputs.new_release_version }}
+      if: steps.semantic.outputs.new_release_published == 'true'
+      run: |
+        git tag $TAG $UPM_BRANCH
+        git push origin --tags

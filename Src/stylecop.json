@@ -1,0 +1,59 @@
+{
+	"comment": "ACTION REQUIRED: This file was automatically added to your project, but it\nwill not take effect until additional steps are taken to enable it. See the\nfollowing page for additional information:\n\nhttps://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/EnableConfiguration.md\n\n\nAuthor:           {Author}\nEMail:            {EMail}\nCopyright:        {Copyright}\nSocial:           {Social}\n\nOriginal Source:  .\nLast Modified:    .\n\nContributed by:   .\nCurtsey By:       .",
+	"$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+	"settings": {
+		"documentationRules": {
+			"documentationCulture": "en-US",
+			"documentInterfaces": true,
+			"documentExposedElements": true,
+			"documentInternalElements": true,
+			"documentPrivateElements": true,
+			"documentPrivateFields": true,
+			"companyName": "iPAHeartBeat",
+			"copyrightText": "Copyright (c) {companyName}. All rights reserved.",
+			"xmlHeader": true,
+			"headerDecoration": "--------------------------------------------------------------------------------------",
+			"variables": {
+				"Author": "Ankur Ranpariya {iPAHeartBeat}",
+				"EMail": "ankur30884@gmail.com",
+				"Copyright": "(c) 2017, by: Ranpariya Ankur {iPAHeartBeat}",
+				"Social": "@iPAHeartBeat, www.ranpariyaankur.com"
+			}
+		},
+		"indentation": {
+			"indentationSize": 4,
+			"tabSize": 4,
+			"useTabs": true
+		},
+		"readabilityRules": {
+			"allowBuiltInTypeAliases": true
+		},
+		"orderingRules": {
+			"elementOrder": [
+				"kind",
+				"constant",
+				"accessibility",
+				"static",
+				"readonly"
+			],
+			"systemUsingDirectivesFirst": true,
+			"usingDirectivesPlacement": "outsideNamespace",
+			"blankLinesBetweenUsingGroups": "require"
+		},
+		"namingRules": {
+			"allowCommonHungarianPrefixes": true,
+			"allowedHungarianPrefixes": [],
+			"allowedNamespaceComponents": ["iOS", "iPAHeartBeat"],
+			"includeInferredTupleElementNames": true,
+			"tupleElementNameCasing": "camelCase"
+		},
+		"maintainabilityRules": {
+			"topLevelTypes": ["class", "interface", "enum", "struct"]
+		},
+		"layoutRules": {
+			"allowConsecutiveUsings": false,
+			"allowDoWhileOnClosingBrace": false,
+			"newlineAtEndOfFile": "require"
+		}
+	}
+}

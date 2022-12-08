@@ -1,0 +1,23 @@
+{
+	"name": "<<PackageId>>",
+	"version": "1.0.0-RC3",
+	"displayName": "<<Package Name>>",
+	"description": "<<PackageDescription>>",
+	"license": "LGPL-3.0-or-later",
+	"unity": "2017.1",
+	"keywords": [],
+	"author": {
+		"name": "Ankur Ranpariya",
+		"email": "ankur30884@gmail.com"
+	},
+	"samples": [],
+	"type": "library",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"bugs": {
+		"url": "/issues",
+		"email": "ankur30884@gmail.com"
+	}
+}
