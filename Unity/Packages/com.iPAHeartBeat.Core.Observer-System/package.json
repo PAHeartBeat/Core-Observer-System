@@ -1,10 +1,16 @@
 {
 	"name": "com.ipaheartbeat.core.observer-system",
-	"version": "1.0.0-RC3",
+	"version": "1.0.0-RC1",
 	"displayName": "Core Observer-System",
 	"description": "This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.",
 	"license": "LGPL-3.0-or-later",
 	"unity": "2017.1",
+	"dependencies": {
+		"com.ipaheartbeat.core.abstraction": "1.0.0-RC3",
+		"com.ipaheartbeat.core.dependency": "2.0.0",
+		"com.ipaheartbeat.core.extensions": "2.0.0",
+		"com.ipaheartbeat.core.singleton": "1.0.0-RC1"
+	},
 	"keywords": [
 		"C#",
 		"Observer Design Pattern",

@@ -1,14 +1,56 @@
 {
   "dependencies": {
     "com.ipaheartbeat.core.abstraction": {
-      "version": "file:com.iPAHeartBeat.Core.Abstraction",
+      "version": "1.0.0-RC3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://npm.cloudsmith.io/ipaheartbeat/core"
+    },
+    "com.ipaheartbeat.core.dependency": {
+      "version": "2.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://npm.cloudsmith.io/ipaheartbeat/core"
+    },
+    "com.ipaheartbeat.core.extensions": {
+      "version": "2.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.1"
+      },
+      "url": "https://npm.cloudsmith.io/ipaheartbeat/core"
+    },
+    "com.ipaheartbeat.core.observer-system": {
+      "version": "file:com.iPAHeartBeat.Core.Observer-System",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "com.ipaheartbeat.core.abstraction": "1.0.0-RC3",
+        "com.ipaheartbeat.core.dependency": "2.0.0",
+        "com.ipaheartbeat.core.extensions": "2.0.0",
+        "com.ipaheartbeat.core.singleton": "1.0.0-RC1"
+      }
+    },
+    "com.ipaheartbeat.core.singleton": {
+      "version": "1.0.0-RC1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://npm.cloudsmith.io/ipaheartbeat/core"
     },
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.0.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
