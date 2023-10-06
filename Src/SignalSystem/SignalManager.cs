@@ -173,35 +173,41 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="data">Data with as same signal type which need pass with module or system.</param>
 	public void Fire<TType>(TType data) {
-		var listenerList = (ArrayList)this._listenersData[typeof(TType)];
+		try {
+			var listenerList = (ArrayList)this._listenersData[typeof(TType)];
 
-		if (listenerList.IsNull()) {
-			_ = this._log?.LogWarning("SignalSystem", 11, "Fire => Did not found any Subscribers for " + typeof(TType));
-			return;
-		}
+			if (listenerList.IsNull()) {
+				_ = this._log?.LogWarning("SignalSystem", 11, "Fire => Did not found any Subscribers for " + typeof(TType));
+				return;
+			}
 
-		var observersToRemove = new ArrayList();
-		for (var index = 0; index < listenerList.Count; index++) {
-			var listener = listenerList[index];
+			var observersToRemove = new ArrayList();
+			for (var index = 0; index < listenerList.Count; index++) {
+				var listener = listenerList[index];
 
-			if (listener.IsNull()) {
-				_ = observersToRemove.Add(listener);
-			} else {
-				if (listener is Action<TType> parAction) {
-					parAction?.Invoke(data);
-				} else if (listener is Action simpleAction) {
-					simpleAction?.Invoke();
-				} else {
-					_ = this._log?.LogWarning("SignalSystem", 11, $"Fire => not valid action to execute for {typeof(TType)} at index {index}");
+				if (listener.IsNull()) {
 					_ = observersToRemove.Add(listener);
+				} else {
+					if (listener is Action<TType> parAction) {
+						parAction?.Invoke(data);
+					} else if (listener is Action simpleAction) {
+						simpleAction?.Invoke();
+					} else {
+						_ = this._log?.LogWarning("SignalSystem", 11, $"Fire => not valid action to execute for {typeof(TType)} at index {index}");
+						_ = observersToRemove.Add(listener);
+					}
 				}
 			}
-		}
 
-		foreach (var observer in observersToRemove) {
-			listenerList.Remove(observer);
+			foreach (var observer in observersToRemove) {
+				listenerList.Remove(observer);
+			}
+		} catch (Exception ex) {
+			Debug.LogError(ex.message);
+			Debug.LogException(ex);
 		}
 	}
+
 
 	/// <summary>
 	/// Internal system as wait for particular time and then needs to be fire or executed.

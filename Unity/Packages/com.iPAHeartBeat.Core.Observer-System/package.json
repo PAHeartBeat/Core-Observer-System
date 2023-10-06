@@ -2,7 +2,7 @@
   "name": "com.ipaheartbeat.core.observer-system",
   "version": "1.0.1",
   "displayName": "Core Observer-System",
-  "description": "This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.",
+  "description": "Introducing the Observer Design Pattern Utility\n\nThis project is all about providing a powerful tool for building systems based on the Observer Design Pattern, such as a Signal System. With this pattern, two modules can communicate and share data using a signal data structure, while remaining completely independent from each other.\n\nIn simpler terms, it's like giving different modules or features a way to talk to each other without getting tangled up. This decouples them, allowing them to work together seamlessly without causing any problems. Whether you're new to programming or a seasoned coder, this utility will help you create flexible and efficient systems.",
   "license": "LGPL-3.0-or-later",
   "unity": "2017.1",
   "dependencies": {
