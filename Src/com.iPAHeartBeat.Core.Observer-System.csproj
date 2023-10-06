@@ -30,7 +30,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageVersion>1.0.0-RC1</PackageVersion>
+		<PackageVersion>1.0.1</PackageVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Debug and Exception Setting">
@@ -54,8 +54,8 @@
 
 		<RootNamespace>iPAHeartBeat.Core</RootNamespace>
 		<AssemblyName>$(PackageId)</AssemblyName>
-		<AssemblyVersion>1.0.0.1</AssemblyVersion>
-		<FileVersion>1.0.0.1</FileVersion>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<FileVersion>1.0.1</FileVersion>
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
