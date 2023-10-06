@@ -71,6 +71,15 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
 
+	<ItemGroup Label="Source Linking">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.Bitbucket.Git" Version="1.1.1" PrivateAssets="All" />
+		<SourceLinkBitbucketGitHost Include="bitbucket.yourdomain.com" Version="4.5" />
+		<PackageReference Include="Microsoft.SourceLink.GitLab" Version="1.1.1" PrivateAssets="All" />
+		<SourceLinkGitLabHost Include="gitlab.yourdomain.com" Version="11.0" />
+		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="1.1.1" PrivateAssets="All" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<EditorConfigFiles Remove=".editorconfig" />
 		<None Include=".editorconfig" />
