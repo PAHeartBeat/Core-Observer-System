@@ -9,7 +9,7 @@ Author:				Ankur Ranpariya {iPAHeartBeat}
 EMail:				ankur30884@gmail.com
 Copyright:			(c) 2017, Ankur Ranpariya {iPAHeartBeat}
 Social:				@iPAHeartBeat,
-GitHubL				https://www.github.com/PAHeartBeat
+GitHub:				https://www.github.com/PAHeartBeat
 
 Original Source:	http://wiki.unity3d.com/index.php/NotificationCenter
 Last Modified:		Ankur Ranpariya
@@ -72,7 +72,7 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	}
 
 	/// <summary>
-	/// Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+	/// Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
 	/// </summary>
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
@@ -93,7 +93,7 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	}
 
 	/// <summary>
-	/// Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+	/// Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
 	/// </summary>
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
@@ -203,11 +203,9 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 				listenerList.Remove(observer);
 			}
 		} catch (Exception ex) {
-			Debug.LogError(ex.message);
-			Debug.LogException(ex);
+			Console.WriteLine($"ERROR: {ex.Message}");
 		}
 	}
-
 
 	/// <summary>
 	/// Internal system as wait for particular time and then needs to be fire or executed.
