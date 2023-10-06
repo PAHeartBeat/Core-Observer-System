@@ -59,7 +59,6 @@
 		<NeutralLanguage>en</NeutralLanguage>
 
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<DocumentationFile>$(AssemblyName)-$(TargetFramework).xml</DocumentationFile>
 	</PropertyGroup>
 
 	<PropertyGroup Label="Project Git Info">
