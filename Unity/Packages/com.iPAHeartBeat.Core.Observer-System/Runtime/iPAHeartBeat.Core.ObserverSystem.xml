@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iPAHeartBeat.Core.ObserverSystem</name>
+    </assembly>
+    <members>
+        <member name="T:iPAHeartBeat.Core.SignalSystem.SignalManager">
+            <summary>
+            Signal Handler to pass data or command between different and multiple module without coupling them with each other via delegate event which required reference of the object/class from another module. This Feature or module will be used a singleton.
+            </summary>
+        </member>
+        <member name="F:iPAHeartBeat.Core.SignalSystem.SignalManager._listenersData">
+            <summary>
+            internal hash-table data to store mapping of signal and it's listeners.
+            </summary>
+        </member>
+        <member name="F:iPAHeartBeat.Core.SignalSystem.SignalManager._log">
+            <summary>
+            Generic Logger System to user logging with different system.
+            </summary>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iPAHeartBeat.Core.SignalSystem.SignalManager"/> class.
+            </summary>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.SubscribeSignal``1(System.Action{``0})">
+            <summary>
+            Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.SubscribeSignal``1(System.Action)">
+            <summary>
+            Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.UnsubscribeSignal``1(System.Action{``0})">
+            <summary>
+            Will unregister/unsubscribe  method which subscribed to listen signals to execute. If method is not subscribed for particular signal type it will be silently ignored without any error.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.UnsubscribeSignal``1(System.Action)">
+            <summary>
+            Will unregister/unsubscribe  method which subscribed to listen signals to execute. If method is not subscribed for particular signal type it will be silently ignored without any error.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.DelayedFire``1(``0,System.Single)">
+            <summary>
+            Will Execute the Signal with delay. Delay will be managed by Threading and execution of actual signal will happens with separate thread. Which could cause issue in certain system which are not allowed other than main thread of the application.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="data">Data with as same signal type which need pass with module or system.</param>
+            <param name="wait">wait time in seconds before it will executes.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.Fire``1">
+            <summary>
+            Will Execute the Signal instant in same thread from where execution asked.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.Fire``1(``0)">
+            <summary>
+            Will Execute the Signal instant in same thread from where execution asked.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="data">Data with as same signal type which need pass with module or system.</param>
+        </member>
+        <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.DelayedSignalFire``1(``0,System.Single)">
+            <summary>
+            Internal system as wait for particular time and then needs to be fire or executed.
+            </summary>
+            <typeparam name="TType">Signal type.</typeparam>
+            <param name="data">Data with as same signal type which need pass with module or system.</param>
+            <param name="waitSec">wait time in seconds before it will executes.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+    </members>
+</doc>
