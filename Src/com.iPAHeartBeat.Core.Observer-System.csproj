@@ -86,9 +86,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="iPAHeartBeat.Core.Abstraction" Version="1.0.0-RC3" />
-		<PackageReference Include="iPAHeartBeat.Core.Dependency" Version="2.0.0" />
-		<PackageReference Include="iPAHeartBeat.Core.Extensions" Version="2.0.0" />
-		<PackageReference Include="iPAHeartBeat.Core.Singleton" Version="1.0.0-RC1" />
+		<PackageReference Include="iPAHeartBeat.Core.Abstraction" Version="[1.0.1,2)" />
+		<PackageReference Include="iPAHeartBeat.Core.Dependency" Version="[2.0.1,3)" />
+		<PackageReference Include="iPAHeartBeat.Core.Extensions" Version="[2.0.1,3)" />
+		<PackageReference Include="iPAHeartBeat.Core.Singleton" Version="[1.0.1,2)" />
 	</ItemGroup>
 </Project>
