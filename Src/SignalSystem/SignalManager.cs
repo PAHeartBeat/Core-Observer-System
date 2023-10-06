@@ -9,7 +9,7 @@ Author:				Ankur Ranpariya {iPAHeartBeat}
 EMail:				ankur30884@gmail.com
 Copyright:			(c) 2017, Ankur Ranpariya {iPAHeartBeat}
 Social:				@iPAHeartBeat,
-GitHubL				https://www.github.com/PAHeartBeat
+GitHub:				https://www.github.com/PAHeartBeat
 
 Original Source:	http://wiki.unity3d.com/index.php/NotificationCenter
 Last Modified:		Ankur Ranpariya
@@ -72,7 +72,7 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	}
 
 	/// <summary>
-	/// Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+	/// Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
 	/// </summary>
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
@@ -93,7 +93,7 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	}
 
 	/// <summary>
-	/// Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+	/// Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
 	/// </summary>
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
@@ -173,33 +173,37 @@ public class SignalManager : Singleton<SignalManager>, ISignalManager {
 	/// <typeparam name="TType">Signal type.</typeparam>
 	/// <param name="data">Data with as same signal type which need pass with module or system.</param>
 	public void Fire<TType>(TType data) {
-		var listenerList = (ArrayList)this._listenersData[typeof(TType)];
+		try {
+			var listenerList = (ArrayList)this._listenersData[typeof(TType)];
 
-		if (listenerList.IsNull()) {
-			_ = this._log?.LogWarning("SignalSystem", 11, "Fire => Did not found any Subscribers for " + typeof(TType));
-			return;
-		}
+			if (listenerList.IsNull()) {
+				_ = this._log?.LogWarning("SignalSystem", 11, "Fire => Did not found any Subscribers for " + typeof(TType));
+				return;
+			}
 
-		var observersToRemove = new ArrayList();
-		for (var index = 0; index < listenerList.Count; index++) {
-			var listener = listenerList[index];
+			var observersToRemove = new ArrayList();
+			for (var index = 0; index < listenerList.Count; index++) {
+				var listener = listenerList[index];
 
-			if (listener.IsNull()) {
-				_ = observersToRemove.Add(listener);
-			} else {
-				if (listener is Action<TType> parAction) {
-					parAction?.Invoke(data);
-				} else if (listener is Action simpleAction) {
-					simpleAction?.Invoke();
-				} else {
-					_ = this._log?.LogWarning("SignalSystem", 11, $"Fire => not valid action to execute for {typeof(TType)} at index {index}");
+				if (listener.IsNull()) {
 					_ = observersToRemove.Add(listener);
+				} else {
+					if (listener is Action<TType> parAction) {
+						parAction?.Invoke(data);
+					} else if (listener is Action simpleAction) {
+						simpleAction?.Invoke();
+					} else {
+						_ = this._log?.LogWarning("SignalSystem", 11, $"Fire => not valid action to execute for {typeof(TType)} at index {index}");
+						_ = observersToRemove.Add(listener);
+					}
 				}
 			}
-		}
 
-		foreach (var observer in observersToRemove) {
-			listenerList.Remove(observer);
+			foreach (var observer in observersToRemove) {
+				listenerList.Remove(observer);
+			}
+		} catch (Exception ex) {
+			Console.WriteLine($"ERROR: {ex.Message}");
 		}
 	}
 

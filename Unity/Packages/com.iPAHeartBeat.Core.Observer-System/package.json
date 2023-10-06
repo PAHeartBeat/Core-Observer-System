@@ -1,34 +1,34 @@
 {
-	"name": "com.ipaheartbeat.core.observer-system",
-	"version": "1.0.0-RC1",
-	"displayName": "Core Observer-System",
-	"description": "This Project will provide the utility to use various kind of system which are built based on Observer Design Pattern like Signal System.",
-	"license": "LGPL-3.0-or-later",
-	"unity": "2017.1",
-	"dependencies": {
-		"com.ipaheartbeat.core.abstraction": "1.0.0-RC3",
-		"com.ipaheartbeat.core.dependency": "2.0.0",
-		"com.ipaheartbeat.core.extensions": "2.0.0",
-		"com.ipaheartbeat.core.singleton": "1.0.0-RC1"
-	},
-	"keywords": [
-		"C#",
-		"Observer Design Pattern",
-		"Signal System",
-		"Message System"
-	],
-	"author": {
-		"name": "Ankur Ranpariya",
-		"email": "ankur30884@gmail.com"
-	},
-	"samples": [],
-	"type": "library",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/PAHeartBeat/Observer-System"
-	},
-	"bugs": {
-		"url": "https://github.com/PAHeartBeat/Observer-System/issues",
-		"email": "ankur30884@gmail.com"
-	}
+  "name": "com.ipaheartbeat.core.observer-system",
+  "version": "1.0.1",
+  "displayName": "Core Observer-System",
+  "description": "Introducing the Observer Design Pattern Utility\n\nThis project is all about providing a powerful tool for building systems based on the Observer Design Pattern, such as a Signal System. With this pattern, two modules can communicate and share data using a signal data structure, while remaining completely independent from each other.\n\nIn simpler terms, it's like giving different modules or features a way to talk to each other without getting tangled up. This decouples them, allowing them to work together seamlessly without causing any problems. Whether you're new to programming or a seasoned coder, this utility will help you create flexible and efficient systems.",
+  "license": "LGPL-3.0-or-later",
+  "unity": "2017.1",
+  "dependencies": {
+    "com.ipaheartbeat.core.abstraction": "1.0.1",
+    "com.ipaheartbeat.core.dependency": "2.0.1",
+    "com.ipaheartbeat.core.extensions": "2.0.1",
+    "com.ipaheartbeat.core.singleton": "1.0.1"
+  },
+  "keywords": [
+    "C#",
+    "Observer Design Pattern",
+    "Signal System",
+    "Message System"
+  ],
+  "author": {
+    "name": "Ankur Ranpariya",
+    "email": "ankur30884@gmail.com"
+  },
+  "samples": [],
+  "type": "library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PAHeartBeat/Observer-System"
+  },
+  "bugs": {
+    "url": "https://github.com/PAHeartBeat/Observer-System/issues",
+    "email": "ankur30884@gmail.com"
+  }
 }

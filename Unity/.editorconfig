@@ -1,39 +1,55 @@
 # To learn more about .editorconfig see https://aka.ms/editorconfigdocs
-####################################################
-# Core EditorConfig Options                        #
-####################################################
+
+################################################################################
+# Core EditorConfig Options                                                    #
+################################################################################
 root = true
 
-# All files
+# 1 - Core Config
+##################
+
+## 1.1 - All files
+##################
 [*]
 
-# Indentation and spacing
+### 1.1.1 - encoding
 charset = utf-8
+
+### 1.1.2 - Indentation and spacing
 indent_size = 4
 indent_style = tab
 tab_width = 4
 
-# New line preferences
+### 1.1.3 - New line preferences
 trim_trailing_whitespace = true
 insert_final_newline = true
 end_of_line = lf
 
-# Code files
-[*.{cs,csx,vb,vbx,js}]
+## 1.2 - JSON Files
+##################
+[*.{json,jsonc}]
 
-##################################################################
+### 1.2.1 - Indentation and spacing
+indent_size = 2
+indent_style = space
 
+## 1.3 - Unity Assets file
+##########################
+[*.{asset,unity}]
 
-###################################################
-# NET Coding Style Rule, Naming Conventions       #
-###################################################
+### 1.3.1 - Indentation and spacing
+indent_size = 2
+indent_style = space
 
-# Code files
-[*.{cs,vb}]
+# 2 - NET Coding Style Rule, Naming Conventions
+###############################################
 
-#############################
-# .NET Coding Style Rule    #
-#############################
+## 2.1 - Code files (C# and VB)
+###############################
+[*.{cs,vb,.csx}]
+
+### 2.1.1 - .NET Coding Style Rule
+##################################
 # severity options = error, warning, suggestion, silent, none or default
 
 # Organize using directives
@@ -95,12 +111,79 @@ dotnet_remove_unnecessary_suppression_exclusions = none # none, all or Flag Ids
 dotnet_style_allow_multiple_blank_lines_experimental = false:warning
 dotnet_style_allow_statement_immediately_after_block_experimental = true:suggestion
 
-###############################
-# NET Naming Conventions      #
+## 2.2 - NET Naming Conventions
 ###############################
 
-# Naming styles Definitions
-###############################
+### 2.2.1 - Naming Symbol specifications
+########################################
+
+dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
+dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.types.required_modifiers =
+
+dotnet_naming_symbols.enum.applicable_kinds = enum
+dotnet_naming_symbols.enum.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.enum.required_modifiers =
+
+dotnet_naming_symbols.delegate.applicable_kinds = delegate
+dotnet_naming_symbols.delegate.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.delegate.required_modifiers =
+
+dotnet_naming_symbols.event.applicable_kinds = event
+dotnet_naming_symbols.event.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.event.required_modifiers =
+
+dotnet_naming_symbols.public_or_protected_or_internal_field.applicable_kinds = field
+dotnet_naming_symbols.public_or_protected_or_internal_field.applicable_accessibilities = public, internal, protected, protected_internal
+dotnet_naming_symbols.public_or_protected_or_internal_field.required_modifiers =
+
+dotnet_naming_symbols.static_field.applicable_kinds = field
+dotnet_naming_symbols.static_field.applicable_accessibilities = public, internal, protected, protected_internal
+dotnet_naming_symbols.static_field.required_modifiers = static
+
+dotnet_naming_symbols.private_field.applicable_kinds = field
+dotnet_naming_symbols.private_field.applicable_accessibilities = private
+dotnet_naming_symbols.private_field.required_modifiers =
+
+dotnet_naming_symbols.private_static_field.applicable_kinds = field
+dotnet_naming_symbols.private_static_field.applicable_accessibilities = private
+dotnet_naming_symbols.private_static_field.required_modifiers = static
+
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.interface.required_modifiers =
+
+dotnet_naming_symbols.method.applicable_kinds = method
+dotnet_naming_symbols.method.applicable_accessibilities = public
+dotnet_naming_symbols.method.required_modifiers =
+
+dotnet_naming_symbols.private_method.applicable_kinds = method
+dotnet_naming_symbols.private_method.applicable_accessibilities = private
+dotnet_naming_symbols.private_method.required_modifiers =
+
+dotnet_naming_symbols.abstract_method.applicable_kinds = method
+dotnet_naming_symbols.abstract_method.applicable_accessibilities = public, internal, protected, protected_internal
+dotnet_naming_symbols.abstract_method.required_modifiers = abstract
+
+dotnet_naming_symbols.static_method.applicable_kinds = method
+dotnet_naming_symbols.static_method.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.static_method.required_modifiers = static
+
+dotnet_naming_symbols.property.applicable_kinds = property
+dotnet_naming_symbols.property.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.property.required_modifiers =
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.applicable_accessibilities = *
+dotnet_naming_symbols.constants.required_modifiers = const
+
+dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
+dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_symbols.non_field_members.required_modifiers =
+
+###2.2.2 - Naming styles Definitions
+#####################################
+
 # Normal Pascal Case.
 dotnet_naming_style.pascal_case.required_prefix =
 dotnet_naming_style.pascal_case.required_suffix =
@@ -125,6 +208,12 @@ dotnet_naming_style._camelcase.required_suffix =
 dotnet_naming_style._camelcase.word_separator =
 dotnet_naming_style._camelcase.capitalization = camel_case
 
+# Camle Case for private fields.
+dotnet_naming_style.m_camelcase.required_prefix = m_
+dotnet_naming_style.m_camelcase.required_suffix =
+dotnet_naming_style.m_camelcase.word_separator =
+dotnet_naming_style.m_camelcase.capitalization = camel_case
+
 # All Upper Case for Constant field.
 dotnet_naming_style.constants.required_prefix =
 dotnet_naming_style.constants.required_suffix =
@@ -132,79 +221,14 @@ dotnet_naming_style.constants.word_separator = _
 dotnet_naming_style.constants.capitalization = all_upper
 
 # Pascal Case option for events
-dotnet_naming_style.events__pascal_case_.required_prefix =
-dotnet_naming_style.events__pascal_case_.required_suffix = Event
-dotnet_naming_style.events__pascal_case_.word_separator =
-dotnet_naming_style.events__pascal_case_.capitalization = pascal_case
+dotnet_naming_style.events_pascal_case.required_prefix =
+dotnet_naming_style.events_pascal_case.required_suffix = Event
+dotnet_naming_style.events_pascal_case.word_separator =
+dotnet_naming_style.events_pascal_case.capitalization = pascal_case
 
-# Naming Symbol specifications
-###############################
-dotnet_naming_symbols.interface.applicable_kinds = interface
-dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.interface.required_modifiers =
+### 2.2.3 - Naming Rules
+########################
 
-dotnet_naming_symbols.enum.applicable_kinds = enum
-dotnet_naming_symbols.enum.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.enum.required_modifiers =
-
-dotnet_naming_symbols.delegate.applicable_kinds = delegate
-dotnet_naming_symbols.delegate.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.delegate.required_modifiers =
-
-dotnet_naming_symbols.event.applicable_kinds = event
-dotnet_naming_symbols.event.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.event.required_modifiers =
-
-dotnet_naming_symbols.method.applicable_kinds = method
-dotnet_naming_symbols.method.applicable_accessibilities = public
-dotnet_naming_symbols.method.required_modifiers =
-
-dotnet_naming_symbols.private_method.applicable_kinds = method
-dotnet_naming_symbols.private_method.applicable_accessibilities = private
-dotnet_naming_symbols.private_method.required_modifiers =
-
-dotnet_naming_symbols.abstract_method.applicable_kinds = method
-dotnet_naming_symbols.abstract_method.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.abstract_method.required_modifiers = abstract
-
-dotnet_naming_symbols.static_method.applicable_kinds = method
-dotnet_naming_symbols.static_method.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.static_method.required_modifiers = static
-
-dotnet_naming_symbols.property.applicable_kinds = property
-dotnet_naming_symbols.property.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.property.required_modifiers =
-
-dotnet_naming_symbols.public_or_protected_or_internal_field.applicable_kinds = field
-dotnet_naming_symbols.public_or_protected_or_internal_field.applicable_accessibilities = public, internal, protected, protected_internal
-dotnet_naming_symbols.public_or_protected_or_internal_field.required_modifiers =
-
-dotnet_naming_symbols.static_field.applicable_kinds = field
-dotnet_naming_symbols.static_field.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.static_field.required_modifiers = static
-
-dotnet_naming_symbols.private__field.applicable_kinds = field
-dotnet_naming_symbols.private__field.applicable_accessibilities = private
-dotnet_naming_symbols.private__field.required_modifiers =
-
-dotnet_naming_symbols.private_static_field.applicable_kinds = field
-dotnet_naming_symbols.private_static_field.applicable_accessibilities = private
-dotnet_naming_symbols.private_static_field.required_modifiers = static
-
-dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
-dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.types.required_modifiers =
-
-dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
-dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal
-dotnet_naming_symbols.non_field_members.required_modifiers =
-
-dotnet_naming_symbols.constants.applicable_kinds = field
-dotnet_naming_symbols.constants.applicable_accessibilities = *
-dotnet_naming_symbols.constants.required_modifiers = const
-
-# Naming Rules
-###############################
 # Interface
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = error
 dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
@@ -223,9 +247,9 @@ dotnet_naming_rule.method_should_be_pascal_case.style = pascal_case
 # Private  Methods
 dotnet_naming_rule.private_method_should_be_pascal_case.severity = error
 dotnet_naming_rule.private_method_should_be_pascal_case.symbols = private_method
-dotnet_naming_rule.private_method_should_be_pascal_case.style = pascal_case
+dotnet_naming_rule.private_method_should_be_pascal_case.style = pascal_case, camel_case
 
-# Public-Private but abstract Methods
+# Abstract Methods (Non Private)
 dotnet_naming_rule.abstract_method_should_be_pascal_case.severity = error
 dotnet_naming_rule.abstract_method_should_be_pascal_case.symbols = abstract_method
 dotnet_naming_rule.abstract_method_should_be_pascal_case.style = pascal_case
@@ -251,14 +275,14 @@ dotnet_naming_rule.delegate_should_be_pascal_case.symbols = delegate
 dotnet_naming_rule.delegate_should_be_pascal_case.style = pascal_case
 
 # Event Types
-dotnet_naming_rule.event_should_be_events__pascal_case_.severity = error
-dotnet_naming_rule.event_should_be_events__pascal_case_.symbols = event
-dotnet_naming_rule.event_should_be_events__pascal_case_.style = events__pascal_case_
+dotnet_naming_rule.event_should_be_events_pascal_case_.severity = error
+dotnet_naming_rule.event_should_be_events_pascal_case_.symbols = event
+dotnet_naming_rule.event_should_be_events_pascal_case_.style = events_pascal_case
 
 # Private fields
-dotnet_naming_rule.private__field_should_be__camelcase.severity = error
-dotnet_naming_rule.private__field_should_be__camelcase.symbols = private__field
-dotnet_naming_rule.private__field_should_be__camelcase.style = _camelcase
+dotnet_naming_rule.private_field_should_be_camelcase.severity = error
+dotnet_naming_rule.private_field_should_be_camelcase.symbols = private_field
+dotnet_naming_rule.private_field_should_be_camelcase.style = camelcase, _camelcase, m_camelcase
 
 # Non-private fields.
 dotnet_naming_rule.public_or_protected_or_internal_field_should_be_camelcase.severity = error
@@ -268,7 +292,7 @@ dotnet_naming_rule.public_or_protected_or_internal_field_should_be_camelcase.sty
 # Private but static fields
 dotnet_naming_rule.private_static_field_should_be__camelcase.severity = error
 dotnet_naming_rule.private_static_field_should_be__camelcase.symbols = private_static_field
-dotnet_naming_rule.private_static_field_should_be__camelcase.style = _camelcase
+dotnet_naming_rule.private_static_field_should_be__camelcase.style = camelcase, _camelcase, m_camelcase
 
 # Non-Private static fields
 dotnet_naming_rule.static_field_should_be_camelcase.severity = error
@@ -284,16 +308,15 @@ dotnet_naming_rule.enum_should_be_pascal_case.style = pascal_case
 dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
-##################################################################
 
-[*.cs]
-##################################################################
-# C# Formatig rules, Coding Conventions, naming conventions      #
-##################################################################
 
-###############################
-# C# Coding Style Rules       #
-###############################
+## 2.3. - C# Formatig rules, Coding Conventions, naming conventions
+###################################################################
+[*.{cs,csx}]
+
+### 2.3.1 - C# Coding Style Rules
+#################################
+
 # var preferences
 csharp_style_var_elsewhere = true:suggestion
 csharp_style_var_for_built_in_types = true:suggestion
@@ -314,7 +337,7 @@ csharp_style_prefer_switch_expression = true:suggestion
 csharp_style_prefer_pattern_matching = true:suggestion
 csharp_style_prefer_not_pattern = true:warning
 csharp_style_prefer_extended_property_pattern = true:warning
-csharp_style_pattern_matching_over_is_with_cast_check = true:none
+csharp_style_pattern_matching_over_is_with_cast_check = true:warning
 csharp_style_pattern_matching_over_as_with_null_check = true:warning
 
 # Null-checking preferences
@@ -343,8 +366,8 @@ csharp_style_prefer_range_operator = true
 csharp_style_prefer_tuple_swap = true
 
 # Misc or Unnecessary Code Rules
-csharp_style_unused_value_assignment_preference = discard_variable:none # discard_variable, unused_local_variable
-csharp_style_unused_value_expression_statement_preference = discard_variable:none # discard_variable, unused_local_variable
+csharp_style_unused_value_assignment_preference = discard_variable:error # discard_variable, unused_local_variable
+csharp_style_unused_value_expression_statement_preference = discard_variable:error # discard_variable, unused_local_variable
 
 # Using directive options
 csharp_using_directive_placement = outside_namespace:warning # outside_namespace or inside_namespace
@@ -354,8 +377,7 @@ csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimenta
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true
 csharp_style_allow_embedded_statements_on_same_line_experimental = true
 
-###############################
-# C# Formatting Rules         #
+### 2.3.2 - C# Formatting Rules
 ###############################
 
 # New line preferences
@@ -403,9 +425,8 @@ csharp_space_between_square_brackets = false
 csharp_preserve_single_line_blocks = true
 csharp_preserve_single_line_statements = true
 
-###############################
-# C# Analyzer rules           #
-###############################
+### 2.3.3 - C# Analyzer rules
+#############################
 
 # Severtiy option
 # none, silent, suggestion, warning, error
@@ -434,13 +455,21 @@ dotnet_diagnostic.SA1124.severity = silent
 # Justification: Nameing Conevention for private field is created for to use a single underscore as prefix to identify private filed by it's name.
 dotnet_diagnostic.SA1309.severity = silent
 
+# CA1707: Identifiers should not contain underscores
+# Justification: Nameing Conevention for Constant is created for to use All Upper Case with Underscore as word sepertor to identify Const by it's name.
+dotnet_diagnostic.CA1707.severity = silent
+
 # SA1307: Accessible fields should begin with upper-case letter
-# Justification:
+# Justification: for Unity packges wer using non private filed with camel case.
 dotnet_diagnostic.SA1307.severity = silent
+
+# SA1401: Field should be private
+# Justification: for Unity packges we are allwoing non-public fields.
+dotnet_diagnostic.SA1401.severity = silent
 
 # SA1311: Static readonly fields should begin with upper-case letter
 # Justification:
-dotnet_diagnostic.SA1311.severity = silent
+# dotnet_diagnostic.SA1311.severity = silent
 
 # S1104: Fields should not have public accessibility
 # Justification: we are using filed variable for input and out data structure for services.
@@ -450,39 +479,16 @@ dotnet_diagnostic.S1104.severity = silent
 # Justification: we are want to use the string data as id to identiy unique object via hashCode.
 dotnet_diagnostic.S2328.severity = silent
 
-# CA1707: Identifiers should not contain underscores
-# Justification: Nameing Conevention for Constant is created for to use All Upper Case with Underscore as word sepertor to identify Const by it's name.
-dotnet_diagnostic.CA1707.severity = silent
+# S3903: Move 'TYPE' into a named namespace.
+# Justification: It's false Positive analyzer warning when using File Scopped Namespace with C#10
+dotnet_diagnostic.S3903.severity = silent
 
-# CA1051: Do not declare visible instance fields
-# Justification:
-dotnet_diagnostic.CA1051.severity = silent
-
-# SA1401: Fields should be private
-# Justification:
-dotnet_diagnostic.SA1401.severity = silent
-
-# IDE0058: Expression value is never used
-dotnet_diagnostic.IDE0058.severity = none
-
-# IDE0059: Unnecessary assignment of a value
-dotnet_diagnostic.IDE0059.severity = none
-
-# IDE0055: Fix formatting
-dotnet_diagnostic.IDE0055.severity = none
-
-# IDE0020: Use pattern matching
-dotnet_diagnostic.IDE0020.severity = none
-
+## 2.4 - VB Formatig rules, Coding Conventions, naming conventions
+##################################################################
 [*.vb]
-##################################################################
-# VB Formatig rules, Coding Conventions, naming conventions      #
-##################################################################
 
-
-###############################
-# VB Coding Conventions       #
-###############################
+### 2.4.1 - VB Coding Conventions
+#################################
 
 # Modifier preferences
 visual_basic_preferred_modifier_order = Partial, Default, Private, Protected, Public, Friend, NotOverridable, Overridable, MustOverride, Overloads, Overrides, MustInherit, NotInheritable, Static, Shared, Shadows, ReadOnly, WriteOnly, Dim, Const, WithEvents, Widening, Narrowing, Custom, Async:silent

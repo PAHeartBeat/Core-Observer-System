@@ -1,0 +1,108 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net471;net48;net6.0;net7.0</TargetFrameworks>
+		<LangVersion>10</LangVersion>
+		<OutputType>library</OutputType>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Analyzer Setting">
+		<AnalysisLevel>latest</AnalysisLevel>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<PropertyGroup Label="ReadyToRun Settings">
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<PublishReadyToRunEmitSymbols>true</PublishReadyToRunEmitSymbols>
+		<PublishReadyToRunComposite Condition="'$(SelfContained)' == true">true</PublishReadyToRunComposite>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Trimming Setting" Condition="'$(SelfContained)' == 'true'">
+		<PublishTrimmed>true</PublishTrimmed>
+		<IsTrimmable>true</IsTrimmable>
+		<TrimMode>link</TrimMode> <!-- copyused, link-->
+	</PropertyGroup>
+
+	<PropertyGroup Label="NuGet Pacakge Settings">
+		<IsPackable>true</IsPackable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageVersion>1.0.1</PackageVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Debug and Exception Setting">
+		<DefineConstants>$(DefineConstants)</DefineConstants>
+		<Optimize>true</Optimize>
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+		<IncludeSymbols>true</IncludeSymbols>
+		<AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Author and Copyright">
+		<Authors>Ankur Ranpariya</Authors>
+		<Copyright>@2021</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Project Meta and settings.">
+		<PackageId>iPAHeartBeat.Core.ObserverSystem</PackageId>
+		<PackageTags>C#, Observer Design Pattern, Signal System, Message System</PackageTags>
+		<Description>Introducing the Observer Design Pattern Utility
+
+			This project is all about providing a powerful tool for building systems based on the Observer Design Pattern, such as a Signal System. With this pattern, two modules can communicate and share data using a signal data structure, while remaining completely independent from each other.
+
+			In simpler terms, it's like giving different modules or features a way to talk to each other without getting tangled up. This decouples them, allowing them to work together seamlessly without causing any problems. Whether you're new to programming or a seasoned coder, this utility will help you create flexible and efficient systems.
+</Description>
+
+		<RootNamespace>iPAHeartBeat.Core</RootNamespace>
+		<AssemblyName>$(PackageId)</AssemblyName>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<FileVersion>1.0.1</FileVersion>
+		<NeutralLanguage>en</NeutralLanguage>
+
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Project Git Info">
+		<PackageProjectUrl />
+		<RepositoryUrl>https://github.com/PAHeartBeat/Observer-System</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" />
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
+
+	<ItemGroup Label="Source Linking">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.Bitbucket.Git" Version="1.1.1" PrivateAssets="All" />
+		<SourceLinkBitbucketGitHost Include="bitbucket.yourdomain.com" Version="4.5" />
+		<PackageReference Include="Microsoft.SourceLink.GitLab" Version="1.1.1" PrivateAssets="All" />
+		<SourceLinkGitLabHost Include="gitlab.yourdomain.com" Version="11.0" />
+		<PackageReference Include="Microsoft.SourceLink.Gitea" Version="1.1.1" PrivateAssets="All" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EditorConfigFiles Remove=".editorconfig" />
+		<None Include=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="LICENSE.md" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="iPAHeartBeat.Core.Abstraction" Version="[1.0.1,2)" />
+		<PackageReference Include="iPAHeartBeat.Core.Dependency" Version="[2.0.1,3)" />
+		<PackageReference Include="iPAHeartBeat.Core.Extensions" Version="[2.0.1,3)" />
+		<PackageReference Include="iPAHeartBeat.Core.Singleton" Version="[1.0.1,2)" />
+	</ItemGroup>
+</Project>

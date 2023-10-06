@@ -26,14 +26,14 @@
         </member>
         <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.SubscribeSignal``1(System.Action{``0})">
             <summary>
-            Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+            Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
             </summary>
             <typeparam name="TType">Signal type.</typeparam>
             <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
         </member>
         <member name="M:iPAHeartBeat.Core.SignalSystem.SignalManager.SubscribeSignal``1(System.Action)">
             <summary>
-            Will register/subscribe a method which has a parametr of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
+            Will register/subscribe a method which has a parameter of same signal type as Listener of signal for the particular signal type. If the method is already subscribed for particular signal, it will not be re-added as duplicate listener to avoid multiple call of a single listener and ignored silently without any error.
             </summary>
             <typeparam name="TType">Signal type.</typeparam>
             <param name="handler">Reference of the method or action which will be executed when Signal fired.</param>
